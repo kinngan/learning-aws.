@@ -1,33 +1,13 @@
 # Manage AWS S3 access with IAM users, groups and policies
-
-## Mục tiêu
-Tài liệu này hướng dẫn cơ bản cách quản lý truy cập tới AWS S3 bằng IAM Users, Groups và Policies—bao gồm ví dụ policy JSON và các bước cấu hình.
-
-## Yêu cầu trước
-- Có tài khoản AWS với quyền tạo IAM & S3.
-- AWS Management Console hoặc AWS CLI cấu hình sẵn.
-
-## Khái niệm nhanh
-- **IAM User:** Người/ứng dụng cá nhân cần truy cập resource.
-- **IAM Group:** Tập hợp Users, gán policy chung cho nhóm.
-- **IAM Policy:** Quy tắc (JSON) cho phép/deny hành động trên resource (ví dụ: S3 bucket).
-- **IAM Role:** Vai trò có thể được assumable bởi EC2, Lambda, hoặc user bên ngoài.
-
-## Ví dụ: Policy chỉ cho phép đọc bucket cụ thể
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:ListBucket"
-      ],
-      "Resource": [
-        "arn:aws:s3:::example-bucket",
-        "arn:aws:s3:::example-bucket/*"
-      ]
-    }
-  ]
-}
+## 1. Tổng quát về IAM
+IAM ( Identity, Access, Management) là địch vụ quản lý quyền truy cập của aws trong đó gồm user, groups, roles, policies
+## 2. Về quản lí quyền truy cập AWS với IAM user, grop và policy
+### a. Tạo user
+Vào IAM chọn users sau đó chọn add users 
+## b. Tạo group
+Về iam chọn group bấm create group
+## c. Cấp quyền-Policy cho Group/user
+## d. Thêm user vô group
+User được hưởng quyền từ quyền mà group đó có
+## 3. Lưu ý
+Chỉ cấp quyền cần thiết cho user hoặc group, ngoài ra có thể gán quyền trực tiếp cho user hoặc group
